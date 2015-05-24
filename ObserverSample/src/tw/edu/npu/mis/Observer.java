@@ -30,6 +30,8 @@ package tw.edu.npu.mis;
  * @author STP
  */
 public interface Observer {
+
     void invalidate();
     void onDraw();
+
 }

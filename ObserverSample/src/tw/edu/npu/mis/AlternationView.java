@@ -34,6 +34,7 @@ public class AlternationView implements Observer {
      private final String mName;
      private final Window mWindow;
      private final Model mModel;
+     String s = "" ;
 
     public AlternationView(String name, Window window, Model model) {
         mName = name;
@@ -53,8 +54,11 @@ public class AlternationView implements Observer {
      * Show the content of the model on the console.
      */
     public void onDraw() {
-     
-        System.out.println("View2 (" + mName + "): " + new StringBuilder(mModel.getData()).reverse());
+          if(!s.equals(mModel.getData()))     System.out.println("View2 (" + mName + "): " + new StringBuilder(mModel.getData()).reverse()); 
+             
+        s = mModel.getData(); 
+  
+  
     }
   
  }
