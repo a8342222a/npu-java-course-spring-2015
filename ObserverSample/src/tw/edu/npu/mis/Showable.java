@@ -29,9 +29,6 @@ package tw.edu.npu.mis;
  *
  * @author STP
  */
-public interface Observer {
-    void upDate();
-  //  void invalidate();
-   // void onDraw();
-
+public interface Showable {
+     void onDraw();
 }

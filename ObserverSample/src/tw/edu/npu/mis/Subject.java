@@ -44,12 +44,11 @@ public class Subject {
     }
     public void notifyObserver()
     {
-        
-        observer.notifyAll();
-        for(Observer o :observer)
+       for(Observer o :observer)
         {
-            o.invalidate();
-            o.onDraw();
+            o.upDate();
+           // o.invalidate();
+            //o.onDraw();
         }
      
         

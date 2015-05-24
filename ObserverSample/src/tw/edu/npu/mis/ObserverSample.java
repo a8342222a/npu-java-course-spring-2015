@@ -35,16 +35,15 @@ import java.util.List;
  */
 public class ObserverSample {
 
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         // Initialize MVC and Window objects.
         Window window = new Window();
         Model model = new Model();
         Controller controller = new Controller(model);
-        List<Observer> views = new ArrayList<>();
+        List<Showable> views = new ArrayList<>();
         views.add(new View("View 1", window, model));
         views.add(new AlternationView("View 2", window, model));
-        views.add(new thanks("View 3", window, model));
-      
+        views.add(new thanks("View 2", window, model));
         // Start the event loop.
         window.startEventLoop(controller, views);
     }

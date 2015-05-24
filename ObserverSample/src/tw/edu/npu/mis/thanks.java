@@ -29,11 +29,11 @@ package tw.edu.npu.mis;
  *
  * @author STP
  */
-public class thanks implements Observer {
-      private final String mName;
+public class thanks implements Observer,Showable {
+     private final String mName;
      private final Window mWindow;
      private final Model mModel;
-     String s = "" ;
+String s = "";
 
     public thanks(String name, Window window, Model model) {
         mName = name;
@@ -53,9 +53,15 @@ public class thanks implements Observer {
      * Show the content of the model on the console.
      */
     public void onDraw() {
-            
-    if(!s.equals(mModel.getData()))   System.out.println("View3 (" + mName + "): "+ "你好"+ mModel.getData());
-     s = mModel.getData();
+      if(!s.equals(mModel.getData()))System.out.println("View3 (" + mName + "): "+ "你好"+ mModel.getData());   
+      s = mModel.getData();       
+      
+   
+    }
+
+    @Override
+    public void upDate() {
+       invalidate();
     }
 
 

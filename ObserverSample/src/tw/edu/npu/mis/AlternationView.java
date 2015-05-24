@@ -29,7 +29,7 @@ package tw.edu.npu.mis;
  *
  * @author STP
  */
-public class AlternationView implements Observer {
+public class AlternationView implements Observer,Showable {
       
      private final String mName;
      private final Window mWindow;
@@ -54,11 +54,15 @@ public class AlternationView implements Observer {
      * Show the content of the model on the console.
      */
     public void onDraw() {
-          if(!s.equals(mModel.getData()))     System.out.println("View2 (" + mName + "): " + new StringBuilder(mModel.getData()).reverse()); 
-             
-        s = mModel.getData(); 
-  
-  
+         
+      if(!s.equals(mModel.getData()) )System.out.println("View2 (" + mName + "): " + new StringBuilder(mModel.getData()).reverse());            
+      s = mModel.getData();          
+    
+    }
+
+    @Override
+    public void upDate() {
+          invalidate();
     }
   
  }
