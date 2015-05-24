@@ -32,7 +32,7 @@ import java.util.Scanner;
  *
  * @author Samael Wang <freesamael@gmail.com>
  */
-public class Controller {
+public class Controller  {
 
     private final Model mModel;
 

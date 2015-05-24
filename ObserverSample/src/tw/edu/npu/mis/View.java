@@ -30,8 +30,8 @@ package tw.edu.npu.mis;
  *
  * @author Samael Wang <freesamael@gmail.com>
  */
-public class View {
-
+public class View implements Observer {
+    private String s;
     private final String mName;
     private final Window mWindow;
     private final Model mModel;
@@ -53,7 +53,14 @@ public class View {
      * Show the content of the model on the console.
      */
     public void onDraw() {
-        System.out.println("View (" + mName + "): " + mModel.getData());
+        s= mModel.getData();
+        if(mModel.getData()!=s)
+        {
+            System.out.println("View (" + mName + "): " + mModel.getData());
+        }
+       
     }
+
+  
 
 }

@@ -32,7 +32,7 @@ package tw.edu.npu.mis;
  */
 public class Model {
 
-    private String mData;
+    private  String mData = "";
 
     /**
      * Get model content.
@@ -49,7 +49,10 @@ public class Model {
      * @param data A {@link String} data.
      */
     public void setData(String data) {
-        mData = data;
+        
+             mData = data;
+        
+         
     }
 
 }
