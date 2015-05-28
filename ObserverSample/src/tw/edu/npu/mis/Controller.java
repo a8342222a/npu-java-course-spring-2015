@@ -27,11 +27,7 @@ package tw.edu.npu.mis;
 
 import java.util.Scanner;
 
-/**
- *
- *
- *
- */
+
 public class Controller  {
 /**
  * Declare mModel

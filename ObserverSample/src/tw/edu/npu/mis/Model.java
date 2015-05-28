@@ -27,7 +27,6 @@ package tw.edu.npu.mis;
 
 /**
  * Model extend Subject
- *
  */
 public class Model extends Subject{
 
@@ -35,9 +34,7 @@ public class Model extends Subject{
 
     /**
      * Get model content.
-     *
      * @return {@link String}
-     *
      */
     public String getData() {
         return mData;

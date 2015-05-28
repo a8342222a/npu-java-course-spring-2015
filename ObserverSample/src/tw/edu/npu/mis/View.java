@@ -37,7 +37,6 @@ public class View implements Observer,Showable {
     private final Model mModel;
        
   /**
-   * 
    * View Constructors
    * let class View know Model,Window method and attribute
    * mModel join observer ArrayList
@@ -57,7 +56,6 @@ public class View implements Observer,Showable {
     }
 
     /**
-     * 
      * judge mModel.getData if the same as  last mModel.getData 
      * not the same that Show the content of the model on the console.
      */

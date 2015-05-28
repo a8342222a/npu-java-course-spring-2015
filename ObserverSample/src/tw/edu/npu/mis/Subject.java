@@ -29,13 +29,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * 
  */
 public class Subject {
     List<Observer> observer = new ArrayList<>();
     /**
-     * 
      *  o add observer ArrayList
      */
     public void attach(Observer o)

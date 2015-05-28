@@ -26,7 +26,6 @@
 package tw.edu.npu.mis;
 
 /**
- *
  *  have upDate way
  */
 public interface Observer {

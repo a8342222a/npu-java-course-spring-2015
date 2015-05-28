@@ -26,8 +26,6 @@
 package tw.edu.npu.mis;
 
 /**
- *
- * 
  * add new method onDraw
  */
 public interface Showable {

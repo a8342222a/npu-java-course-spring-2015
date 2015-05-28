@@ -36,7 +36,6 @@ public class thanks implements Observer,Showable {
      String s = "";
 
      /**
-      * 
       *  View Constructors
       * let class thanks know Model,Window method and attribute
       * mModel join observer ArrayList

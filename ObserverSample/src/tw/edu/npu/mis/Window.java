@@ -30,8 +30,6 @@ import java.util.List;
 
 /**
  * Simulate Window objects in GUI toolkits.
- *
- * 
  */
 public class Window {
 
@@ -41,7 +39,6 @@ public class Window {
 
     /**
      * Start the event loop.
-     *
      * @param c The controller.
      * @param views The views to draw on the first loop.
      */
@@ -61,8 +58,6 @@ public class Window {
 
     /**
      * Add a view to a queue for redraw on screen later.
-     *
-     * 
      */
     public void schduleRedraw(Showable s) {
         if(!mInvalidViews.contains(s)){

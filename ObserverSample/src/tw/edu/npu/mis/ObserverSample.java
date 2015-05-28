@@ -30,12 +30,9 @@ import java.util.List;
 
 /**
  * Simulation of a GUI application.
- *
- *
  */
 public class ObserverSample {
 /**
- * 
  * Window,Model,Controller,ArrayList (new object)
  * Each view  to Register window and model
  * run  window object
