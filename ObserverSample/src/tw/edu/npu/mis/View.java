@@ -41,6 +41,7 @@ public class View implements Observer,Showable {
         mName = name;
         mWindow = window;
         mModel = model;
+        mModel.attach(this);
     }
 
     /**

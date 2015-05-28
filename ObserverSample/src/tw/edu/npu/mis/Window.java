@@ -55,7 +55,7 @@ public class Window {
             for (Showable v : mInvalidViews) {
                 v.onDraw();
             }
-            //mInvalidViews.clear();
+            mInvalidViews.clear();
         }
     }
 

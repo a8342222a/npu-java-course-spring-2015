@@ -29,17 +29,25 @@ package tw.edu.npu.mis;
  *
  * @author STP
  */
+
 public class AlternationView implements Observer,Showable {
-      
+     
      private final String mName;
      private final Window mWindow;
      private final Model mModel;
-     String s = "" ;
+     String s = "" ;              //      
 
+     /**
+      * 
+      * @param name
+      * @param window
+      * @param model 
+      */
     public AlternationView(String name, Window window, Model model) {
         mName = name;
         mWindow = window;
         mModel = model;
+        mModel.attach(this);
     }
 
     /**

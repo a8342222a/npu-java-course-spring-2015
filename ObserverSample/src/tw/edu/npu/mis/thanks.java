@@ -39,6 +39,7 @@ String s = "";
         mName = name;
         mWindow = window;
         mModel = model;
+         mModel.attach(this);
     }
 
     /**
