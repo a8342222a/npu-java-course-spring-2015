@@ -27,8 +27,8 @@ package tw.edu.npu.mis;
 
 /**
  *
- * @author STP
- * 新增一個方法　onDraw
+ * 
+ * add new method onDraw
  */
 public interface Showable {
      void onDraw();

@@ -26,9 +26,9 @@
 package tw.edu.npu.mis;
 
 /**
- * {@link View} generates outputs to the user.
+ *  use interface Observer,Showable
  *
- * @author Samael Wang <freesamael@gmail.com>
+ * Declare s,mName,mWindow,mModel
  */
 public class View implements Observer,Showable {
      String s = "";
@@ -36,7 +36,12 @@ public class View implements Observer,Showable {
     private final Window mWindow;
     private final Model mModel;
        
-
+  /**
+   * 
+   * View Constructors
+   * let class View know Model,Window method and attribute
+   * mModel join observer ArrayList
+   */
     public View(String name, Window window, Model model) {
         mName = name;
         mWindow = window;
@@ -52,13 +57,17 @@ public class View implements Observer,Showable {
     }
 
     /**
-     * Show the content of the model on the console.
+     * 
+     * judge mModel.getData if the same as  last mModel.getData 
+     * not the same that Show the content of the model on the console.
      */
     public void onDraw() {
       if(!s.equals(mModel.getData())) System.out.println("View (" + mName + "): " + mModel.getData());   
       s = mModel.getData();
     }
-
+/**
+ *  call windows upDate
+ */
     @Override
     public void upDate() {
         invalidate();

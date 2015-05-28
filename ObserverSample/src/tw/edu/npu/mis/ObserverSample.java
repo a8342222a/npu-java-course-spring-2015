@@ -31,15 +31,14 @@ import java.util.List;
 /**
  * Simulation of a GUI application.
  *
- * @author Samael Wang <freesamael@gmail.com>
+ *
  */
 public class ObserverSample {
 /**
  * 
- * @param args 
- * 把Window,Model,Controller,ArrayList (new一個物件出來)
- * 把各個view 類別 向window,model註冊
- * 執行controller物件
+ * Window,Model,Controller,ArrayList (new object)
+ * Each view  to Register window and model
+ * run  window object
  */
    public static void main(String[] args) {
         // Initialize MVC and Window objects.

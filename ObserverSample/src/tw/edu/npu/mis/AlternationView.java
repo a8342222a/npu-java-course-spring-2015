@@ -26,8 +26,8 @@
 package tw.edu.npu.mis;
 
 /**
- *
- * @author STP
+ *use interface Observer,Showable
+ * Declare s,mName,mWindow,mModel
  */
 
 public class AlternationView implements Observer,Showable {
@@ -39,9 +39,9 @@ public class AlternationView implements Observer,Showable {
 
      /**
       * 
-      * @param name
-      * @param window
-      * @param model 
+      * View Constructors
+      * let class AlternationView know Model,Window method and attribute
+      * mModel join observer ArrayList
       */
     public AlternationView(String name, Window window, Model model) {
         mName = name;
@@ -59,7 +59,8 @@ public class AlternationView implements Observer,Showable {
     }
 
     /**
-     * Show the content of the model on the console.
+     * judge mModel.getData if the same as  last mModel.getData 
+     * not the same that Show the content of the model on the console.
      */
     public void onDraw() {
          
@@ -67,7 +68,9 @@ public class AlternationView implements Observer,Showable {
       s = mModel.getData();          
     
     }
-
+/**
+ *  call windows upDate
+ */
     @Override
     public void upDate() {
           invalidate();

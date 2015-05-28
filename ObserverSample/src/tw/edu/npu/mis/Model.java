@@ -26,27 +26,25 @@
 package tw.edu.npu.mis;
 
 /**
- * The domain model.
+ * Model extend Subject
  *
- * @author Samael Wang <freesamael@gmail.com>
  */
 public class Model extends Subject{
 
-    private  String mData = "";
+    private  String mData = "";  // 
 
     /**
      * Get model content.
      *
      * @return {@link String}
+     *
      */
     public String getData() {
         return mData;
     }
 
-    /**
-     * Update model.
-     *
-     * @param data A {@link String} data.
+    /**    
+     * upDate date
      */
     public void setData(String data) {
         

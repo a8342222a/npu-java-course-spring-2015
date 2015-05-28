@@ -26,8 +26,8 @@
 package tw.edu.npu.mis;
 
 /**
- *使用 Observer,Showable 介面
- * @author STP
+ * use interface Observer,Showable
+ *  Declare s,mName,mWindow,mModel
  */
 public class thanks implements Observer,Showable {
      private final String mName;
@@ -35,6 +35,12 @@ public class thanks implements Observer,Showable {
      private final Model mModel;
      String s = "";
 
+     /**
+      * 
+      *  View Constructors
+      * let class thanks know Model,Window method and attribute
+      * mModel join observer ArrayList
+      */
     public thanks(String name, Window window, Model model) {
         mName = name;
         mWindow = window;
@@ -51,7 +57,8 @@ public class thanks implements Observer,Showable {
     }
 
     /**
-     * 判斷是否為空值或是跟上次輸入是否一樣,如果一樣就不Show the content of the model on the console.
+     * judge mModel.getData if the same as  last mModel.getData 
+     * not the same that Show the content of the model on the console.
      */
     public void onDraw() {
       if(!s.equals(mModel.getData()))System.out.println("View3 (" + mName + "): "+ "你好"+ mModel.getData());   
@@ -60,7 +67,7 @@ public class thanks implements Observer,Showable {
    
     }
     /**
-     *  更新資料
+     *   call windows upDate
      */
     @Override
     public void upDate() {

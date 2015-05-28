@@ -27,7 +27,7 @@ package tw.edu.npu.mis;
 
 /**
  *
- * @author STP
+ *  have upDate way
  */
 public interface Observer {
     void upDate();

@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Simulate Window objects in GUI toolkits.
  *
- * @author Samael Wang <freesamael@gmail.com>
+ * 
  */
 public class Window {
 
@@ -62,7 +62,7 @@ public class Window {
     /**
      * Add a view to a queue for redraw on screen later.
      *
-     * @param v View to redraw.
+     * 
      */
     public void schduleRedraw(Showable s) {
         if(!mInvalidViews.contains(s)){
