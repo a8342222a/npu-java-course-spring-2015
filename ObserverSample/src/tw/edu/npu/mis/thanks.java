@@ -26,14 +26,14 @@
 package tw.edu.npu.mis;
 
 /**
- *
+ *使用 Observer,Showable 介面
  * @author STP
  */
 public class thanks implements Observer,Showable {
      private final String mName;
      private final Window mWindow;
      private final Model mModel;
-String s = "";
+     String s = "";
 
     public thanks(String name, Window window, Model model) {
         mName = name;
@@ -51,7 +51,7 @@ String s = "";
     }
 
     /**
-     * Show the content of the model on the console.
+     * 判斷是否為空值或是跟上次輸入是否一樣,如果一樣就不Show the content of the model on the console.
      */
     public void onDraw() {
       if(!s.equals(mModel.getData()))System.out.println("View3 (" + mName + "): "+ "你好"+ mModel.getData());   
@@ -59,7 +59,9 @@ String s = "";
       
    
     }
-
+    /**
+     *  更新資料
+     */
     @Override
     public void upDate() {
        invalidate();

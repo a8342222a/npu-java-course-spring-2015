@@ -34,7 +34,13 @@ import java.util.List;
  * @author Samael Wang <freesamael@gmail.com>
  */
 public class ObserverSample {
-
+/**
+ * 
+ * @param args 
+ * 把Window,Model,Controller,ArrayList (new一個物件出來)
+ * 把各個view 類別 向window,model註冊
+ * 執行controller物件
+ */
    public static void main(String[] args) {
         // Initialize MVC and Window objects.
         Window window = new Window();

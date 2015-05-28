@@ -31,7 +31,6 @@ package tw.edu.npu.mis;
  */
 public interface Observer {
     void upDate();
-  //  void invalidate();
-   // void onDraw();
+
 
 }

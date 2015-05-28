@@ -34,8 +34,11 @@ import java.util.Scanner;
  */
 public class Controller  {
 
-    private final Model mModel;
-
+    private final Model mModel; //宣告一個Model變數
+/**
+ * 
+ * Controller 建構子
+ */
     public Controller(Model model) {
         mModel = model;
     }
