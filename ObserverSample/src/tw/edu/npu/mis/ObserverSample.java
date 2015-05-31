@@ -45,7 +45,7 @@ public class ObserverSample {
         List<Showable> views = new ArrayList<>();
         views.add(new View("View 1", window, model));
         views.add(new AlternationView("View 2", window, model));
-        views.add(new thanks("View 2", window, model));
+        views.add(new HelloView("View 3", window, model));
         // Start the event loop.
         window.startEventLoop(controller, views);
     }

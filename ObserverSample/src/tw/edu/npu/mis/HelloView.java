@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, STP
+ * Copyright (c) 2015, daniel
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,10 +26,14 @@
 package tw.edu.npu.mis;
 
 /**
+ *
+ * @author daniel
+ */
+/**
  * use interface Observer,Showable
  *  Declare s,mName,mWindow,mModel
  */
-public class thanks implements Observer,Showable {
+public class HelloView implements Observer,Showable {
      private final String mName;
      private final Window mWindow;
      private final Model mModel;
@@ -40,7 +44,7 @@ public class thanks implements Observer,Showable {
       * let class thanks know Model,Window method and attribute
       * mModel join observer ArrayList
       */
-    public thanks(String name, Window window, Model model) {
+    public HelloView(String name, Window window, Model model) {
         mName = name;
         mWindow = window;
         mModel = model;
