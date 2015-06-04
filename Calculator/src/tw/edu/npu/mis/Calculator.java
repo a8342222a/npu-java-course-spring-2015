@@ -8,7 +8,7 @@ package tw.edu.npu.mis;
 /**
  * The model class of the calculator application.
  */
-public class Calculator {
+public class Calculator   {
     
     /**
      * The available operators of the calculator.
