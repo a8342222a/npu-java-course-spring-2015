@@ -5,23 +5,34 @@
  */
 package tw.edu.npu.mis;
 
+import tw.edu.npu.mis.Model.Operator;
+
 /**
  *
  * @author daniel
  */
 public class Controller {
       
-    private final Calculator mModel; 
-    private final Computer mView;
+    Model mModel;
+    //private final Computer mView;
    
-    public Controller(Calculator model,Computer controller) {
-        mModel = model;
-        mView = controller;
-    }
-
-
-    public void setData()
-    {
+    public Controller(/*Computer view,*/Model model) {
+      //  mView = view;
+       mModel = model;
         
+    }
+ 
+    public void setData(String data)
+    {
+        mModel.appendDigit(Integer.parseInt(data));
+       
+    }
+    public void setDot(String dot)
+    {
+        mModel.appendDot(dot);
+    }
+    public void setOperator(String operator)
+    {
+      //  mModel.performOperation(operator);
     }
 }

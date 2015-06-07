@@ -8,8 +8,8 @@ package tw.edu.npu.mis;
 /**
  * The model class of the calculator application.
  */
-public class Calculator   {
-    
+public class Model  extends java.util.Observable {
+     String digital ="";
     /**
      * The available operators of the calculator.
      */
@@ -34,10 +34,15 @@ public class Calculator   {
     }
     
     public void appendDigit(int digit) {
+       
+       digital += String.valueOf(digit);
+       System.out.print(digital);
         // TODO code application logic here
     }
     
-    public void appendDot() {
+    public void appendDot(String dot) {
+        digital  += dot;
+        System.out.print(digital);
         // TODO code application logic here
     }
     
