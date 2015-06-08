@@ -50,9 +50,15 @@ public class Model  extends java.util.Observable {
     }
     
     public void performOperation(Operator operator) {
+        if(operator == Operator.CLEAR)
+        {
+            digital = "0";
+            getDisplay();
+            digital ="";
+        }
         if(operator == Operator.SQRT)
         {
-            digital = String.valueOf(Math.sqrt(Integer.parseInt(digital)));
+            digital = String.valueOf((int)Math.sqrt(Integer.parseInt(digital)));
              getDisplay();
         }
         if(operator == Operator.PLUS_MINUS)
@@ -141,6 +147,7 @@ public class Model  extends java.util.Observable {
           if(operator =="/") performOperation(Operator.OVER); 
           if(operator == "±") performOperation(Operator.PLUS_MINUS);
           if(operator == "√") performOperation(Operator.SQRT);
+          if(operator == "C") performOperation(Operator.CLEAR);
         
     }
      

@@ -195,6 +195,11 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         });
 
         jButton19.setText("C");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
 
         jButton20.setText("±");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -422,6 +427,10 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         mController.setOperator(jButton26.getText());
     }//GEN-LAST:event_jButton26ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        mController.setOperator(jButton19.getText());
+    }//GEN-LAST:event_jButton19ActionPerformed
 
     /**
      * @param args the command line arguments
