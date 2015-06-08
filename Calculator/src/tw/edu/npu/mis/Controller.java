@@ -24,7 +24,7 @@ public class Controller {
     public void setData(String data)
     {
         mModel.appendDigit(Integer.parseInt(data));
-        mView.test();
+        
     }
     
     public void setDot(String dot)

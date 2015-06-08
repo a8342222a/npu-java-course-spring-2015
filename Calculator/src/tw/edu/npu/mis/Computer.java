@@ -197,6 +197,11 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         jButton19.setText("C");
 
         jButton20.setText("±");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
 
         jButton21.setText("MC");
 
@@ -209,6 +214,11 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         jButton25.setText("M-");
 
         jButton26.setText("√");
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
 
         jButton27.setText("%");
 
@@ -405,6 +415,14 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         mController.setOperator(jButton12.getText());
     }//GEN-LAST:event_jButton12ActionPerformed
 
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        mController.setOperator(jButton20.getText());
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        mController.setOperator(jButton26.getText());
+    }//GEN-LAST:event_jButton26ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -483,10 +501,5 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
     @Override
     public void update(Observable o, Object arg) {
         jTextField1.setText(arg.toString());
-    }
-    public void test()
-    {
-        System.out.print("hello");
-       
     }
 }

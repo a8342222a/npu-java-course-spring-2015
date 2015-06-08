@@ -12,6 +12,7 @@ public class Model  extends java.util.Observable {
      String digital ="";
      int x,y;
      String z,data;
+    
     /**
      * The available operators of the calculator.
      */
@@ -45,12 +46,33 @@ public class Model  extends java.util.Observable {
     
     public void appendDot(String dot) {
         digital  += dot;
-        System.out.print(digital);
+        data = digital;
         getDisplay();
         // TODO code application logic here
     }
     
     public void performOperation(Operator operator) {
+        if(operator == Operator.SQRT)
+        {
+            data = String.valueOf(Math.sqrt(Integer.parseInt(digital)));
+            digital = data;
+             getDisplay();
+        }
+        if(operator == Operator.PLUS_MINUS)
+        {
+            if(Integer.parseInt(digital)>0)
+            {
+                
+                data = "-"+ digital;
+                digital = data;
+                 getDisplay();
+            }else{
+                data =  String.valueOf((int)Math.abs(Integer.parseInt(digital))) ;
+                digital = data;
+                 getDisplay();
+            }
+            
+        }
         if(operator == Operator.PLUS)
         {
             x = Integer.parseInt(digital); 
@@ -87,6 +109,7 @@ public class Model  extends java.util.Observable {
                  y = Integer.parseInt(digital); 
                 digital = "";
                 data = String.valueOf(x+y);
+                digital = data;
                 getDisplay();
             }
             if(z == "-")
@@ -94,6 +117,7 @@ public class Model  extends java.util.Observable {
                  y = Integer.parseInt(digital); 
                 digital = "";
                 data = String.valueOf(x-y);
+                digital = data;
                 getDisplay();
             }
              if(z == "*")
@@ -101,6 +125,7 @@ public class Model  extends java.util.Observable {
                  y = Integer.parseInt(digital); 
                 digital = "";
                 data = String.valueOf(x*y);
+                digital = data;
                 getDisplay();
             }
               if(z == "/")
@@ -109,6 +134,7 @@ public class Model  extends java.util.Observable {
                 digital = "";
                 data =String.valueOf(x/y);
                 System.out.print(data);
+                digital = data;
                 getDisplay();
             }
            
@@ -119,26 +145,14 @@ public class Model  extends java.util.Observable {
     }
     
      public void setOperator(String operator) {
-         if(operator == "+")
-         {
-            performOperation(Operator.PLUS); 
-         }
-          if(operator =="＝")
-         {
-            performOperation(Operator.EQUAL); 
-         }
-          if(operator =="-")
-          {
-               performOperation(Operator. MINUS); 
-          }
-            if(operator =="*")
-          {
-               performOperation(Operator.TIMES); 
-          }
-              if(operator =="/")
-          {
-               performOperation(Operator.OVER); 
-          }
+         if(operator == "+") performOperation(Operator.PLUS); 
+          if(operator =="＝")performOperation(Operator.EQUAL);   
+          if(operator =="-") performOperation(Operator. MINUS); 
+          if(operator =="*") performOperation(Operator.TIMES); 
+          if(operator =="/") performOperation(Operator.OVER); 
+          if(operator == "±") performOperation(Operator.PLUS_MINUS);
+          if(operator == "√") performOperation(Operator.SQRT);
+        
     }
      
      

@@ -330,6 +330,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xb1;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton20ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton21">
       <Properties>
@@ -360,6 +363,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x221a;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton26ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton27">
       <Properties>
