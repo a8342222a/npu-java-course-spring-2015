@@ -11,7 +11,7 @@ package tw.edu.npu.mis;
 public class Model  extends java.util.Observable {
      String digital ="";
      int x,y;
-     String z,data;
+     String z;
     
     /**
      * The available operators of the calculator.
@@ -39,14 +39,12 @@ public class Model  extends java.util.Observable {
     public void appendDigit(int digit) {
        
        digital += String.valueOf(digit);
-       data = digital;
         getDisplay();
         // TODO code application logic here
     }
     
     public void appendDot(String dot) {
         digital  += dot;
-        data = digital;
         getDisplay();
         // TODO code application logic here
     }
@@ -54,21 +52,17 @@ public class Model  extends java.util.Observable {
     public void performOperation(Operator operator) {
         if(operator == Operator.SQRT)
         {
-            data = String.valueOf(Math.sqrt(Integer.parseInt(digital)));
-            digital = data;
+            digital = String.valueOf(Math.sqrt(Integer.parseInt(digital)));
              getDisplay();
         }
         if(operator == Operator.PLUS_MINUS)
         {
             if(Integer.parseInt(digital)>0)
-            {
-                
-                data = "-"+ digital;
-                digital = data;
+            {          
+                digital = "-"+ digital;
                  getDisplay();
             }else{
-                data =  String.valueOf((int)Math.abs(Integer.parseInt(digital))) ;
-                digital = data;
+                digital =  String.valueOf((int)Math.abs(Integer.parseInt(digital))) ;
                  getDisplay();
             }
             
@@ -107,35 +101,30 @@ public class Model  extends java.util.Observable {
             if(z == "+")
             {
                  y = Integer.parseInt(digital); 
-                digital = "";
-                data = String.valueOf(x+y);
-                digital = data;
+                digital = String.valueOf(x+y);
                 getDisplay();
+                digital = "";
             }
             if(z == "-")
             {
                  y = Integer.parseInt(digital); 
-                digital = "";
-                data = String.valueOf(x-y);
-                digital = data;
+                digital = String.valueOf(x-y);
                 getDisplay();
+                digital = "";
             }
              if(z == "*")
             {
                  y = Integer.parseInt(digital); 
-                digital = "";
-                data = String.valueOf(x*y);
-                digital = data;
+                digital = String.valueOf(x*y);
                 getDisplay();
+                digital ="";
             }
               if(z == "/")
             {
                  y = Integer.parseInt(digital); 
-                digital = "";
-                data =String.valueOf(x/y);
-                System.out.print(data);
-                digital = data;
+                digital =String.valueOf(x/y);
                 getDisplay();
+                digital = "";
             }
            
             
@@ -158,7 +147,7 @@ public class Model  extends java.util.Observable {
      
     public String getDisplay() {   
         setChanged();
-	notifyObservers(data);
+	notifyObservers(digital);
         return null;
     }
     
