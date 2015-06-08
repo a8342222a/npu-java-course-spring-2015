@@ -14,25 +14,34 @@ import tw.edu.npu.mis.Model.Operator;
 public class Controller {
       
     Model mModel;
-    //private final Computer mView;
+   Computer mView;
    
     public Controller(/*Computer view,*/Model model) {
-      //  mView = view;
-       mModel = model;
-        
+       // mView = view;
+       mModel = model;  
     }
  
     public void setData(String data)
     {
         mModel.appendDigit(Integer.parseInt(data));
-       
+        mView.test();
     }
+    
     public void setDot(String dot)
     {
         mModel.appendDot(dot);
     }
+    
     public void setOperator(String operator)
     {
-      //  mModel.performOperation(operator);
+        mModel.setOperator(operator);
     }
+    
+    public void addView(Computer view){
+		mView = view;
+                mModel.getDisplay();
+   
+    }
+    
+  
 }

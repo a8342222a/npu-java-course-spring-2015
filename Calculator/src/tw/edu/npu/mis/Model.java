@@ -10,6 +10,8 @@ package tw.edu.npu.mis;
  */
 public class Model  extends java.util.Observable {
      String digital ="";
+     int x,y;
+     String z,data;
     /**
      * The available operators of the calculator.
      */
@@ -36,24 +38,116 @@ public class Model  extends java.util.Observable {
     public void appendDigit(int digit) {
        
        digital += String.valueOf(digit);
-       System.out.print(digital);
+       data = digital;
+        getDisplay();
         // TODO code application logic here
     }
     
     public void appendDot(String dot) {
         digital  += dot;
         System.out.print(digital);
+        getDisplay();
         // TODO code application logic here
     }
     
     public void performOperation(Operator operator) {
+        if(operator == Operator.PLUS)
+        {
+            x = Integer.parseInt(digital); 
+            digital = "";
+            z = "+";
+          
+        }
+         if(operator == Operator.MINUS)
+        {
+            x = Integer.parseInt(digital); 
+            digital = "";
+            z = "-";
+            
+        }
+         if(operator == Operator. TIMES)
+        {
+            x = Integer.parseInt(digital); 
+            digital = "";
+            z = "*";
+            
+        }
+           if(operator == Operator.OVER)
+        {
+            x = Integer.parseInt(digital); 
+            digital = "";
+            z = "/";
+            
+        }
+           
+        if(operator == Operator.EQUAL)
+        {
+            if(z == "+")
+            {
+                 y = Integer.parseInt(digital); 
+                digital = "";
+                data = String.valueOf(x+y);
+                getDisplay();
+            }
+            if(z == "-")
+            {
+                 y = Integer.parseInt(digital); 
+                digital = "";
+                data = String.valueOf(x-y);
+                getDisplay();
+            }
+             if(z == "*")
+            {
+                 y = Integer.parseInt(digital); 
+                digital = "";
+                data = String.valueOf(x*y);
+                getDisplay();
+            }
+              if(z == "/")
+            {
+                 y = Integer.parseInt(digital); 
+                digital = "";
+                data =String.valueOf(x/y);
+                System.out.print(data);
+                getDisplay();
+            }
+           
+            
+        }
+    
         // TODO code application logic here
     }
     
-    public String getDisplay() {
-        // TODO code application logic here
+     public void setOperator(String operator) {
+         if(operator == "+")
+         {
+            performOperation(Operator.PLUS); 
+         }
+          if(operator =="＝")
+         {
+            performOperation(Operator.EQUAL); 
+         }
+          if(operator =="-")
+          {
+               performOperation(Operator. MINUS); 
+          }
+            if(operator =="*")
+          {
+               performOperation(Operator.TIMES); 
+          }
+              if(operator =="/")
+          {
+               performOperation(Operator.OVER); 
+          }
+    }
+     
+     
+    public String getDisplay() {   
+        setChanged();
+	notifyObservers(data);
         return null;
     }
+    
 
     /**
      * @param args the command line arguments

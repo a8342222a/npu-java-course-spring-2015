@@ -6,6 +6,7 @@
 package tw.edu.npu.mis;
 
 import java.util.Observable;
+import javax.swing.JButton;
 
 /**
  *
@@ -28,6 +29,7 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
    */
     public Computer(Controller mcontroller) {
          mController = mcontroller;
+        
         initComponents(); 
        
         //mController = controller;
@@ -73,6 +75,8 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         jButton28 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTextField1.setText("0");
 
         jButton1.setText("1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +142,11 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         });
 
         jButton10.setText("0");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setText(".");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -147,10 +156,25 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         });
 
         jButton12.setText("*");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jButton13.setText("/");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         jButton14.setText("-");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jButton15.setText("+");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +188,11 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         jButton17.setText("CE");
 
         jButton18.setText("＝");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
 
         jButton19.setText("C");
 
@@ -356,10 +385,30 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
       mController.setOperator(jButton15.getText());
     }//GEN-LAST:event_jButton15ActionPerformed
 
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+       mController.setData( jButton10.getText());
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        mController.setOperator(jButton18.getText());
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+         mController.setOperator(jButton14.getText());
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        mController.setOperator(jButton13.getText());
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        mController.setOperator(jButton12.getText());
+    }//GEN-LAST:event_jButton12ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+  public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -390,12 +439,15 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
              Model model = new Model();
              Controller ss = new Controller(model); 
              Computer view = new Computer(ss);
-              view.setVisible(true);
+             ss.addView(view);
+             view.setVisible(true);
+             model.addObserver(view);
             }
         });
-    }
+      
+   }
   
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -430,6 +482,11 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        
+        jTextField1.setText(arg.toString());
+    }
+    public void test()
+    {
+        System.out.print("hello");
+       
     }
 }
