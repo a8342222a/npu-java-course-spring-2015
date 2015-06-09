@@ -13,7 +13,7 @@ public class Model  extends java.util.Observable {
      * 宣告 各種變數
      */
      String digital ="";
-     double x,y,a;
+     double x,y,a,b =0;
      String z;
     
     /**
@@ -147,9 +147,20 @@ public class Model  extends java.util.Observable {
          */
         if(operator == Operator.PLUS)
         {
-            x = Double.parseDouble(digital); 
-            digital = "";
-            z = "+";
+            if(b ==0 && digital != "")
+            {
+                x = Double.parseDouble(digital); 
+                digital = "";
+                z = "+"; 
+            }
+            else
+            {
+                x =b;
+                b= 0;
+                digital = "";
+                z = "+"; 
+            }
+           
           
         }
         /**
@@ -157,27 +168,58 @@ public class Model  extends java.util.Observable {
          */
          if(operator == Operator.MINUS)
         {
-            x = Double.parseDouble(digital); 
-            digital = "";
-            z = "-";   
+             if(b ==0 && digital != "")
+            {
+                x = Double.parseDouble(digital); 
+                digital = "";
+                z = "-"; 
+            }
+            else
+            {
+                x =b;
+                b= 0;
+                digital = "";
+                z = "-"; 
+            }
+   
         }
          /**
           * 按下*功能
           */
          if(operator == Operator. TIMES)
         {
-            x = Double.parseDouble(digital); 
-            digital = "";
-            z = "*";   
+            if(b ==0 && digital != "")
+            {
+                x = Double.parseDouble(digital); 
+                digital = "";
+                z = "*"; 
+            }
+            else
+            {
+                x =b;
+                b= 0;
+                digital = "";
+                z = "*"; 
+            }
         }
          /**
           * 按下/功能
           */
            if(operator == Operator.OVER)
         {
-            x = Double.parseDouble(digital); 
-            digital = "";
-            z = "/";      
+            if(b ==0 && digital != "")
+            {
+                x = Double.parseDouble(digital); 
+                digital = "";
+                z = "/"; 
+            }
+            else
+            {
+                x =b;
+                b= 0;
+                digital = "";
+                z = "/"; 
+            }
         }
         /**
          * 按下等於功能
@@ -193,12 +235,13 @@ public class Model  extends java.util.Observable {
                   digital = String.valueOf((int)(x+y)); 
                   System.out.print(digital);
                    getDisplay();
+                    b = Double.parseDouble(digital);
                    digital = "";
                 }
                 else
                 {
-                   
                    getDisplay();
+                    b = Double.parseDouble(digital);
                     digital = ""; 
                 }
                 
@@ -212,13 +255,14 @@ public class Model  extends java.util.Observable {
                   digital = String.valueOf((int)(x-y)); 
                   System.out.print(digital);
                    getDisplay();
+                   b = Double.parseDouble(digital);
                    digital = "";
                 }
                 else
-                {
-                   
+                { 
                    getDisplay();
-                    digital = ""; 
+                   b = Double.parseDouble(digital);
+                   digital = ""; 
                 }
             }
              if(z == "*")
@@ -230,12 +274,13 @@ public class Model  extends java.util.Observable {
                   digital = String.valueOf((int)(x*y)); 
                   System.out.print(digital);
                    getDisplay();
+                   b = Double.parseDouble(digital);
                    digital = "";
                 }
                 else
                 {
-                   
                    getDisplay();
+                    b = Double.parseDouble(digital);
                     digital = ""; 
                 }
             }
@@ -248,12 +293,13 @@ public class Model  extends java.util.Observable {
                   digital = String.valueOf((int)(x/y)); 
                   System.out.print(digital);
                    getDisplay();
+                    b = Double.parseDouble(digital);
                    digital = "";
                 }
                 else
                 {
-                   
                    getDisplay();
+                    b = Double.parseDouble(digital);
                     digital = ""; 
                 }
             }
