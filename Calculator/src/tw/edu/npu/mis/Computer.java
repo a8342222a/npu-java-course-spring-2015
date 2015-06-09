@@ -184,8 +184,18 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         });
 
         jButton16.setText("←");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         jButton17.setText("CE");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
 
         jButton18.setText("＝");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
@@ -226,8 +236,18 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         });
 
         jButton27.setText("%");
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
 
         jButton28.setText("1/x");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -432,6 +452,22 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         mController.setOperator(jButton19.getText());
     }//GEN-LAST:event_jButton19ActionPerformed
 
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+         mController.setOperator(jButton16.getText());
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        mController.setOperator(jButton17.getText());
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        mController.setOperator(jButton28.getText());
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        mController.setOperator(jButton27.getText());
+    }//GEN-LAST:event_jButton27ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -466,6 +502,7 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
              Model model = new Model();
              Controller ss = new Controller(model); 
              Computer view = new Computer(ss);
+             view.setTitle("小算盤");
              ss.addView(view);
              view.setVisible(true);
              model.addObserver(view);
