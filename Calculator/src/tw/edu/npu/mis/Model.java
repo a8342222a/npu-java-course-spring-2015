@@ -14,7 +14,7 @@ public class Model  extends java.util.Observable {
      */
      String digital ="";
      double x,y,a,b =0;
-     String z;
+     String z,r;
     
     /**
      * The available operators of the calculator.
@@ -63,6 +63,46 @@ public class Model  extends java.util.Observable {
      * @param operator 
      */
     public void performOperation(Operator operator) {
+        if(operator == Operator.MEM_CLEAR)
+        {
+            r = "0";
+            digital = "0";
+            getDisplay();
+        }
+        /**
+         * 按下MR
+         */
+        if(operator == Operator.MEM_RECALL)
+        {
+          
+                     
+                digital = r;
+                getDisplay();
+                digital = "";
+              
+            
+           
+        }
+        /**
+         *  按下M+
+         */
+        if(operator ==Operator.MEM_PLUS)
+        {
+            
+              if(digital =="")
+            {
+                
+                r  = String.valueOf((int)b);
+                digital ="";
+                
+                
+            }else
+            {
+                r = digital;
+                digital = "";
+                getDisplay();
+            }
+        }
         /**
          * 按下 % 功能 (%功能有錯誤)
          */
@@ -320,6 +360,9 @@ public class Model  extends java.util.Observable {
           if(operator == "CE") performOperation(Operator.CLEAR_ENTRY);
           if(operator == "1/x") performOperation(Operator.RECIPROCAL);
           if(operator == "%") performOperation(Operator.PERCENT);
+          if(operator == "M+") performOperation(Operator.MEM_PLUS);
+          if(operator == "MR") performOperation(Operator.MEM_RECALL);
+          if(operator == "MC") performOperation(Operator.MEM_CLEAR);
     }
      
     /**
