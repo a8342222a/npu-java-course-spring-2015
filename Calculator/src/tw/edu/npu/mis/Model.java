@@ -37,7 +37,7 @@ public class Model  extends java.util.Observable {
         MEM_PLUS,    // M+
         MEM_MINUS,   // M-
         MEM_RECALL,   // MR
-        Back
+        Back            // ←
     }
     /**
      * 按下數字的功能
@@ -148,79 +148,72 @@ public class Model  extends java.util.Observable {
          */
         if(operator == Operator.PLUS)
         {
-            if( digital != "")
-            {
-                x = Double.parseDouble(digital); 
+           if(digital.length()>0)
+           {
+               x = Double.parseDouble(digital); 
                 digital = "";
                 z = "+"; 
-            }
-            else if (b !=0 )
-            {
+           }else
+           {
                 x =b;
                 b= 0;
                 digital = "";
                 z = "+"; 
-            }
-           
-          
+           }           
         }
         /**
          * 按下-功能
          */
          if(operator == Operator.MINUS)
         {
-             if(b ==0 && digital != "")
-            {
-                x = Double.parseDouble(digital); 
+              if(digital.length()>0)
+           {
+               x = Double.parseDouble(digital); 
                 digital = "";
                 z = "-"; 
-            }
-             else if (b !=0 )
-            {
+           }else
+           {
                 x =b;
                 b= 0;
                 digital = "";
                 z = "-"; 
-            }
-   
+           }  
         }
          /**
           * 按下*功能
           */
          if(operator == Operator. TIMES)
         {
-            if(b ==0 && digital != "")
-            {
-                x = Double.parseDouble(digital); 
+             if(digital.length()>0)
+           {
+               x = Double.parseDouble(digital); 
                 digital = "";
                 z = "*"; 
-            }
-            else if (b !=0 )
-            {
+           }else
+           {
                 x =b;
                 b= 0;
                 digital = "";
                 z = "*"; 
-            }
+           }  
         }
          /**
           * 按下/功能
           */
            if(operator == Operator.OVER)
         {
-            if(b ==0 && digital != "")
-            {
-                x = Double.parseDouble(digital); 
+              if(digital.length()>0)
+           {
+               x = Double.parseDouble(digital); 
                 digital = "";
                 z = "/"; 
-            }
-            else if (b !=0 )
-            {
+           }else
+           {
                 x =b;
                 b= 0;
                 digital = "";
                 z = "/"; 
-            }
+           }  
         }
         /**
          * 按下等於功能
