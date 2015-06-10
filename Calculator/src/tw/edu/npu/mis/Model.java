@@ -63,11 +63,15 @@ public class Model  extends java.util.Observable {
      * @param operator 
      */
     public void performOperation(Operator operator) {
+        /**
+         * 按下MC
+         */
         if(operator == Operator.MEM_CLEAR)
         {
             r = "0";
             digital = "0";
             getDisplay();
+            digital = "";
         }
         /**
          * 按下MR
