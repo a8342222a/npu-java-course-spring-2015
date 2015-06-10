@@ -209,8 +209,7 @@ public class Model  extends java.util.Observable {
                 z = "/"; 
            }else
            {
-                x =b;
-                b= 0;
+                x =b;              
                 digital = "";
                 z = "/"; 
            }  
