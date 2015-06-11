@@ -233,6 +233,11 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         });
 
         jButton23.setText("MS");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
 
         jButton24.setText("M+");
         jButton24.addActionListener(new java.awt.event.ActionListener() {
@@ -242,6 +247,11 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         });
 
         jButton25.setText("M-");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
 
         jButton26.setText("√");
         jButton26.addActionListener(new java.awt.event.ActionListener() {
@@ -494,6 +504,14 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
          mController.setOperator(jButton21.getText());
     }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        mController.setOperator(jButton25.getText());
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+       mController.setOperator(jButton23.getText());
+    }//GEN-LAST:event_jButton23ActionPerformed
 
     /**
      * @param args the command line arguments

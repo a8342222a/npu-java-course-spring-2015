@@ -13,8 +13,8 @@ public class Model  extends java.util.Observable {
      * 宣告 各種變數
      */
      String digital ="";
-     double x,y,a,b =0;
-     String z,r;
+     double x,y,a,b =0,c;
+     String z = "",r = "0";
     
     /**
      * The available operators of the calculator.
@@ -44,7 +44,6 @@ public class Model  extends java.util.Observable {
      * @param digit 
      */
     public void appendDigit(int digit) {
-       
        digital += String.valueOf(digit);
         getDisplay();
         // TODO code application logic here
@@ -62,7 +61,14 @@ public class Model  extends java.util.Observable {
      * 各種運算功能
      * @param operator 
      */
-    public void performOperation(Operator operator) {
+    public void performOperation(Operator operator) {  
+        /**
+         * 按下MS 功能
+         */
+        if(operator == Operator.MEM_SET)
+        {
+            r = digital;
+        }
         /**
          * 按下MC
          */
@@ -77,15 +83,19 @@ public class Model  extends java.util.Observable {
          * 按下MR
          */
         if(operator == Operator.MEM_RECALL)
-        {
-          
-                     
-                digital = r;
-                getDisplay();
-                digital = "";
-              
-            
-           
+        {        
+           if(r.indexOf(".0")==r.length()-2)
+           {
+               c = Double.parseDouble(r);
+               digital = String.valueOf((int)c);
+               getDisplay();
+               digital ="" ;
+           }else
+           {
+               digital = r;
+               getDisplay();
+               digital = "";
+           }                  
         }
         /**
          *  按下M+
@@ -94,39 +104,66 @@ public class Model  extends java.util.Observable {
         {
             
               if(digital =="")
-            {
-                
+            {  
                 r  = String.valueOf((int)b);
-                digital ="";
-                
-                
+                digital ="";        
             }else
             {
-                r = digital;
+                r = String.valueOf(Double.parseDouble(r)+ Double.parseDouble(digital));     
                 digital = "";
                 getDisplay();
             }
         }
+         /**
+         * 按下M-功能
+         */
+        if(operator ==Operator.MEM_MINUS)
+         {
+               if(digital =="")
+            {               
+                r  = String.valueOf((int)b);
+                digital ="";               
+            }else
+            {
+                r = String.valueOf(Double.parseDouble(r)- Double.parseDouble(digital));               
+                digital = "";
+                getDisplay();
+            }
+         }
         /**
          * 按下 % 功能 (%功能有錯誤)
          */
-        if(operator ==Operator.PERCENT)
-        {
-            a = Double.parseDouble(digital);
-            a = a/100;
-            digital = String.valueOf(a);
-            getDisplay();
-        }
+         if(digital =="")
+         {
+
+         }else
+         {
+                 if(operator ==Operator.PERCENT)
+                 {
+                     a = Double.parseDouble(digital);
+                     a = a/100;
+                     digital = String.valueOf(a);
+                     getDisplay();
+                 }
+         }
+      
         /**
          * 按下 1/x 功能
          */
-        if(operator == Operator. RECIPROCAL)
-        {
-            a = Double.parseDouble(digital);
-            a = 1/a;
-            digital = String.valueOf(a);
-            getDisplay();
-        }
+        if(digital =="")
+         {
+
+         }else
+         {
+               if(operator == Operator. RECIPROCAL)
+                 {
+                     a = Double.parseDouble(digital);
+                     a = 1/a;
+                     digital = String.valueOf(a);
+                     getDisplay();
+                 }
+         }
+       
         /**
          * 按下 ＣE　功能
          */
@@ -140,52 +177,71 @@ public class Model  extends java.util.Observable {
          * 按下 倒退鍵功能
          */
           if(operator == Operator.Back)
-        {
-            if(digital.length()>0) digital = digital.substring(0,digital.length()-1);
-            getDisplay();
-           
-        }
+          {
+              if(digital == "")
+              {
+                   if(digital.length()>0) digital = digital.substring(0,digital.length()-1);
+                   getDisplay();         
+              }    
+          }
         /**
          * 按下 C  功能
          */
         if(operator == Operator.CLEAR)
-        {
-           
-            digital = "0";
-            b = 0;
-            getDisplay();
-            digital ="";
-        }
+         {
+
+                digital = "0";
+                b = 0;
+                getDisplay();
+                digital ="";
+         }
         /**
          * 按下 開根號功能
          */
         if(operator == Operator.SQRT)
         {
-            digital = String.valueOf(Math.sqrt(Double.parseDouble(digital)));
-            a= Double.parseDouble(digital); 
-              if(digital.indexOf(".0")==digital.length()-2)
-           {
-               // System.out.print(a);
-               digital = String.valueOf((int)a);
-               getDisplay();
-           }else
-              {
-                  getDisplay();
-              }
+            if(digital == "")
+            {
+                
+            }else
+            {
+                 digital = String.valueOf(Math.sqrt(Double.parseDouble(digital)));
+                 a= Double.parseDouble(digital); 
+                if(digital.indexOf(".0")==digital.length()-2)
+                {
+                    // System.out.print(a);
+                    digital = String.valueOf((int)a);
+                    getDisplay();
+                }else
+                {
+                       getDisplay();
+                }
+            }
+           
         }
         /**
          * 正負數轉變功能
          */
         if(operator == Operator.PLUS_MINUS)
         {
-            if(Double.parseDouble(digital)>0)
-            {          
-                digital = "-"+ digital;
-                 getDisplay();
-            }else{
-                digital =  String.valueOf(Math.abs(Double.parseDouble(digital))) ;
-                 getDisplay();
-            }   
+             if(digital == "")
+             {
+                 
+             }else    
+             {
+                 if(Double.parseDouble(digital)>0)
+                  {          
+                       digital = "-"+ digital;
+                       getDisplay();
+                  }else{
+                       digital =  String.valueOf(Math.abs(Double.parseDouble(digital))) ;
+                        if(digital.indexOf(".0")==digital.length()-2)
+                        {
+                            digital =  String.valueOf((int)Math.abs(Double.parseDouble(digital))) ;
+                            getDisplay();
+                        }                
+                  }   
+             }
         }
         /**
          * 按下+功能
@@ -339,12 +395,8 @@ public class Model  extends java.util.Observable {
                     b = Double.parseDouble(digital);
                     digital = ""; 
                 }
-            }
-           
-            
+            }           
         }
-    
-        // TODO code application logic here
     }
     
     /**
@@ -367,6 +419,10 @@ public class Model  extends java.util.Observable {
           if(operator == "M+") performOperation(Operator.MEM_PLUS);
           if(operator == "MR") performOperation(Operator.MEM_RECALL);
           if(operator == "MC") performOperation(Operator.MEM_CLEAR);
+          if(operator == "M-") performOperation( Operator.MEM_MINUS);
+          if(operator == "MS") performOperation( Operator.MEM_SET);
+          
+         
     }
      
     /**
