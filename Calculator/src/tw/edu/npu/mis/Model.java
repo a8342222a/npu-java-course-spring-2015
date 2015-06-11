@@ -75,9 +75,6 @@ public class Model  extends java.util.Observable {
         if(operator == Operator.MEM_CLEAR)
         {
             r = "0";
-            digital = "0";
-            getDisplay();
-            digital = "";
         }
         /**
          * 按下MR
@@ -88,11 +85,13 @@ public class Model  extends java.util.Observable {
            {
                c = Double.parseDouble(r);
                digital = String.valueOf((int)c);
+               b = Double.parseDouble(digital) ;
                getDisplay();
                digital ="" ;
            }else
            {
                digital = r;
+               b = Double.parseDouble(digital) ;
                getDisplay();
                digital = "";
            }                  
@@ -106,7 +105,8 @@ public class Model  extends java.util.Observable {
               if(digital =="")
             {  
                 r  = String.valueOf((int)b);
-                digital ="";        
+                digital =""; 
+                getDisplay();
             }else
             {
                 r = String.valueOf(Double.parseDouble(r)+ Double.parseDouble(digital));     
