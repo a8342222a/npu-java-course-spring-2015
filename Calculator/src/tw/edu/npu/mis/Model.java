@@ -401,7 +401,7 @@ public class Model  extends java.util.Observable {
     
     /**
      * 把Controller丟過來的運符號，依照符號去執行各種功能
-     * @param operator 
+     *  operator 拿來存運算符號 
      */
      public void setOperator(String operator) {
          if(operator == "+") performOperation(Operator.PLUS); 

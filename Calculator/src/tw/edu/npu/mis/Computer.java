@@ -15,7 +15,7 @@ import javax.swing.JButton;
 
 public class Computer extends javax.swing.JFrame implements java.util.Observer {
      
-     Controller mController;
+     Controller mController; //宣告mController
   //private final Controller mController;
     /**
      * Creates new form Computer
@@ -27,6 +27,9 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
        
     }
    */
+     /**
+      * 讓Computer 知道 Controller 的方法屬性
+      */
     public Computer(Controller mcontroller) {
          mController = mcontroller;
         
@@ -540,7 +543,14 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        
+        /**
+         * 把model Controller Computer new一個物件出來
+         * 把model都到Controller
+         * 把controller丟到view
+         * 把view丟到Controller
+         * 把view加入觀察者
+         */
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -589,6 +599,10 @@ public class Computer extends javax.swing.JFrame implements java.util.Observer {
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * 
+     *更新 jTextField1 資料   
+     */
     @Override
     public void update(Observable o, Object arg) {
         jTextField1.setText(arg.toString());
