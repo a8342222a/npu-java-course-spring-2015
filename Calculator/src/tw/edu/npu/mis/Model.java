@@ -188,9 +188,12 @@ public class Model  extends java.util.Observable {
           {
               if(digital == "")
               {
+                        
+              }else
+              {
                    if(digital.length()>0) digital = digital.substring(0,digital.length()-1);
-                   getDisplay();         
-              }    
+                   getDisplay();   
+              }
           }
         /**
          * 按下 C  功能
