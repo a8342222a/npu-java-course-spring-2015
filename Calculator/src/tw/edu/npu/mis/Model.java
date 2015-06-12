@@ -50,11 +50,19 @@ public class Model  extends java.util.Observable {
     }
     /**
      * 按下點的功能
-     * @param dot 
+     * @param dot
+     * 判斷小數點只能有一個
      */
     public void appendDot(String dot) {
-        digital  += dot;
-        getDisplay();
+        if(digital.indexOf(".")>0)
+        {
+            
+        }else
+        {
+           digital  += dot;
+           getDisplay(); 
+        }
+        
         // TODO code application logic here
     }
     /**
